@@ -115,7 +115,7 @@ const SignInForm = () => {
               />
             </CardContent>
             <CardFooter>
-              <Button type="submit">Entrar</Button>
+              <Button className="w-full" type="submit">Entrar</Button>
             </CardFooter>
           </form>
         </Form>
