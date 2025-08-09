@@ -7,10 +7,10 @@ import { Button } from "../ui/button";
 import { authClient } from "@/lib/auth-client";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import Link from "next/link";
-import Cart from "./cart";
+import { Cart } from "./cart";
 
 const Header = () => {
-    const {data: session } = authClient.useSession();
+    const { data: session } = authClient.useSession();
 
   return (
     <>
