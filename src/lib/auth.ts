@@ -27,6 +27,7 @@ export const auth = betterAuth({
     modelName: "accountTable",
   },
   verification: {
-    modelName: 'verificationTable'
-  }
+    modelName: "verificationTable",
+  },
+  trustedOrigins: ["http://localhost:3000", "http://192.168.0.56:3000"],
 });
