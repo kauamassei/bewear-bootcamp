@@ -7,6 +7,7 @@ import CategorySelector from "@/components/common/category-selector";
 import { productTable } from "@/db/schema";
 import { desc } from "drizzle-orm";
 import Footer from "@/components/common/footer";
+import Brands from "@/components/common/brands";
 
 const Home = async () => {
   const products = await db.query.productTable.findMany({
@@ -37,6 +38,8 @@ const Home = async () => {
             className="h-auto w-full"
           />
         </div>
+
+        <Brands title='Marcas parceiras' />
 
         <ProductList products={products} title="Mais vendidos" />
 
