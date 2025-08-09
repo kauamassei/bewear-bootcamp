@@ -5,11 +5,12 @@ import { eq } from "drizzle-orm";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { formatCentsToBRL } from "@/helpers/money";
-import { Button } from "@/components/ui/button";
+
 import ProductList from "@/components/common/product-list";
 import Footer from "@/components/common/footer";
 import VariantSelector from "./components/variant-selector";
-import QuantitySelector from "./components/quantity-selector";
+
+import ProductActions from "./components/product-actions";
 
 interface ProductVariantPageProps {
   params: Promise<{ slug: string }>;
@@ -51,7 +52,10 @@ const ProductVariantPage = async ({ params }: ProductVariantPageProps) => {
         />
 
         <div className="px-5">
-          <VariantSelector selectedVariantSlug={productVariant.slug} variants={productVariant.product.variants} />
+          <VariantSelector
+            selectedVariantSlug={productVariant.slug}
+            variants={productVariant.product.variants}
+          />
         </div>
         <div className="px-5">
           {/*Descricao*/}
@@ -64,16 +68,7 @@ const ProductVariantPage = async ({ params }: ProductVariantPageProps) => {
           <h3>{formatCentsToBRL(productVariant.priceInCents)}</h3>
         </div>
 
-        <div className="px-5"><QuantitySelector /></div>
-
-        <div className="flex flex-col space-y-4 px-5">
-          <Button className="rounded-full" size="lg" variant="outline">
-            Adicionar à sacola
-          </Button>
-          <Button className="rounded-full" size="lg">
-            Comprar agora
-          </Button>
-        </div>
+        <ProductActions productVariantId={productVariant.id} />
         <div className="px-5">
           <p className="text-shadow-amber-600">
             {productVariant.product.description}
