@@ -2,13 +2,10 @@ import { MinusIcon, PlusIcon, TrashIcon } from "lucide-react";
 import Image from "next/image";
 import { formatCentsToBRL } from "@/helpers/money";
 import { Button } from "../ui/button";
-import {
-  QueryClient,
-  useMutation,
-  useQueryClient,
-} from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { removeProductFromCart } from "@/actions/remove-cart-product";
 import { toast } from "sonner";
+import { decreaseCartProductQuantity } from "@/actions/decrease-cart-product-quantity";
 
 interface CartItemProps {
   id: string;
@@ -36,6 +33,14 @@ const CartItem = ({
     },
   });
 
+  const decreaseCartProductQuantityMutation = useMutation({
+    mutationKey: ["decrease-cart-product-quantity"],
+    mutationFn: () => decreaseCartProductQuantity({ cartItemId: id }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["cart"] });
+    },
+  });
+
   const handleDeleteClick = () => {
     removeProductFromCartMutation.mutate(undefined, {
       onSuccess: () => {
@@ -43,6 +48,14 @@ const CartItem = ({
       },
       onError: () => {
         toast.error("Erro ao remover produto do carrinho.");
+      },
+    });
+  };
+
+  const handleDecreaseQuantityClick = () => {
+    decreaseCartProductQuantityMutation.mutate(undefined, {
+      onSuccess: () => {
+        toast.success("Quantidade do produto removida.");
       },
     });
   };
@@ -64,7 +77,7 @@ const CartItem = ({
           </p>
 
           <div className="flex w-[80px] items-center justify-between rounded-md border p-0.5">
-            <Button className="h-3 w-3 p-0" variant="ghost" onClick={() => {}}>
+            <Button className="h-3 w-3 p-0" variant="ghost" onClick={handleDecreaseQuantityClick}>
               <MinusIcon className="h-3 w-3" />
             </Button>
             <p className="text-[10px] font-medium">{quantity}</p>
