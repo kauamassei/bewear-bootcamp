@@ -1,0 +1,27 @@
+import { categoryTable } from "@/db/schema";
+import { Button } from "../ui/button";
+import Link from "next/link";
+
+interface CategorySelectorProps {
+  categories: (typeof categoryTable.$inferSelect)[];
+}
+
+const CategorySelectorHeader = ({ categories }: CategorySelectorProps) => {
+  return (
+    <>
+        <div className="grid grid-cols-2 gap-3">
+          {categories.map((category) => (
+            <Button
+              key={category.id}
+              variant="ghost"
+              className="rounded-full bg-white text-xs font-semibold"
+            >
+              <Link href={`/category/${category.slug}`}>{category.name}</Link>
+            </Button>
+          ))}
+        </div>
+    </>
+  );
+};
+
+export default CategorySelectorHeader;

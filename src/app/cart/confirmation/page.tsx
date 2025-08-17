@@ -9,7 +9,6 @@ import { redirect } from "next/navigation";
 import CartSummary from "../components/cart-summary";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatAddress } from "../helpers/address";
-import { Button } from "@/components/ui/button";
 import FinishOrderButton from "./components/finish-order-button";
 
 const ConfirmationPage = async () => {
@@ -54,7 +53,7 @@ const ConfirmationPage = async () => {
         <div className="space-y-4 px-5">
           <Card>
             <CardHeader>
-              <CardTitle>Identificacão</CardTitle>
+              <CardTitle>Identificação</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <Card>
@@ -64,7 +63,7 @@ const ConfirmationPage = async () => {
                   </p>
                 </CardContent>
               </Card>
-             <FinishOrderButton />
+              <FinishOrderButton />
             </CardContent>
           </Card>
           <CartSummary
