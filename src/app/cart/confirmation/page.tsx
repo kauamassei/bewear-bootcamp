@@ -2,7 +2,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 import Footer from "@/components/common/footer";
-import Header from "@/components/common/header";
+import HeaderWrapper from "@/components/common/header-wrapper";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { db } from "@/db";
@@ -46,35 +46,39 @@ const ConfirmationPage = async () => {
   }
   return (
     <div>
-      <Header />
-      <div className="space-y-4 px-5">
-        <Card>
-          <CardHeader>
-            <CardTitle>Identificação</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-6">
-            <Card>
-              <CardContent>
-                <p className="text-sm">{formatAddress(cart.shippingAddress)}</p>
-              </CardContent>
-            </Card>
-            <FinishOrderButton />
-          </CardContent>
-        </Card>
-        <CartSummary
-          subtotalInCents={cartTotalInCents}
-          totalInCents={cartTotalInCents}
-          products={cart.items.map((item) => ({
-            id: item.productVariant.id,
-            name: item.productVariant.product.name,
-            variantName: item.productVariant.name,
-            quantity: item.quantity,
-            priceInCents: item.productVariant.priceInCents,
-            imageUrl: item.productVariant.imageUrl,
-          }))}
-        />
+      <HeaderWrapper />
+      <div className="space-y-4 md:space-y-6 lg:space-y-8 px-5 md:px-8 lg:px-12">
+        <div className="md:grid md:grid-cols-2 lg:grid-cols-[1.5fr_1fr] md:gap-8 lg:gap-12">
+          <Card>
+            <CardHeader>
+              <CardTitle className="md:text-xl">Identificação</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <Card>
+                <CardContent>
+                  <p className="text-sm md:text-base">{formatAddress(cart.shippingAddress)}</p>
+                </CardContent>
+              </Card>
+              <FinishOrderButton />
+            </CardContent>
+          </Card>
+          <div className="md:sticky md:top-8 md:self-start">
+            <CartSummary
+              subtotalInCents={cartTotalInCents}
+              totalInCents={cartTotalInCents}
+              products={cart.items.map((item) => ({
+                id: item.productVariant.id,
+                name: item.productVariant.product.name,
+                variantName: item.productVariant.name,
+                quantity: item.quantity,
+                priceInCents: item.productVariant.priceInCents,
+                imageUrl: item.productVariant.imageUrl,
+              }))}
+            />
+          </div>
+        </div>
       </div>
-      <div className="mt-12">
+      <div className="mt-12 md:mt-16 lg:mt-20">
         <Footer />
       </div>
     </div>

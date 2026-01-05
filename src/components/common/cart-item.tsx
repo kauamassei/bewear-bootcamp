@@ -63,51 +63,51 @@ const CartItem = ({
   };
 
   return (
-    <div className="flex items-center justify-between gap-3 py-2">
-      <div className="flex items-center gap-3">
+    <div className="flex items-center justify-between gap-3 py-2 md:gap-4">
+      <div className="flex items-center gap-3 md:gap-4">
         <Image
           src={productVariantImageUrl}
           alt={productVariantName}
           width={50}
           height={50}
-          className="rounded-md"
+          className="rounded-md md:w-[60px] md:h-[60px] lg:w-[70px] lg:h-[70px]"
         />
-        <div className="flex flex-col gap-0.5">
-          <p className="text-xs font-semibold">{productName}</p>
-          <p className="text-muted-foreground text-[10px] font-medium">
+        <div className="flex flex-col gap-0.5 md:gap-1">
+          <p className="text-xs md:text-sm font-semibold">{productName}</p>
+          <p className="text-muted-foreground text-[10px] md:text-xs font-medium">
             {productVariantName}
           </p>
 
-          <div className="flex w-[80px] items-center justify-between rounded-md border p-0.5">
+          <div className="flex w-[80px] md:w-[100px] items-center justify-between rounded-md border p-0.5 md:p-1">
             <Button
-              className="h-3 w-3 p-0"
+              className="h-3 w-3 md:h-4 md:w-4 p-0"
               variant="ghost"
               onClick={handleDecreaseQuantityClick}
             >
-              <MinusIcon className="h-3 w-3" />
+              <MinusIcon className="h-3 w-3 md:h-4 md:w-4" />
             </Button>
-            <p className="text-[10px] font-medium">{quantity}</p>
+            <p className="text-[10px] md:text-xs font-medium">{quantity}</p>
             <Button
-              className="h-4 w-4"
+              className="h-4 w-4 md:h-5 md:w-5"
               variant="ghost"
               onClick={handleIncreaseQuantityClick}
             >
-              <PlusIcon className="h-3 w-3" />
+              <PlusIcon className="h-3 w-3 md:h-4 md:w-4" />
             </Button>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col items-end justify-center gap-1">
+      <div className="flex flex-col items-end justify-center gap-1 md:gap-2">
         <Button
           variant="outline"
           size="icon"
-          className="h-6 w-6 p-0"
+          className="h-6 w-6 md:h-7 md:w-7 p-0"
           onClick={handleDeleteClick}
         >
-          <TrashIcon className="h-3 w-3" />
+          <TrashIcon className="h-3 w-3 md:h-4 md:w-4" />
         </Button>
-        <p className="text-xs font-bold">
+        <p className="text-xs md:text-sm font-bold">
           {formatCentsToBRL(productVariantPriceInCents)}
         </p>
       </div>

@@ -28,15 +28,15 @@ export const Cart = () => {
           <ShoppingBasketIcon />
         </Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className="md:w-[500px] lg:w-[600px]">
         <SheetHeader>
-          <SheetTitle>Carrinho</SheetTitle>
+          <SheetTitle className="md:text-xl lg:text-2xl">Carrinho</SheetTitle>
         </SheetHeader>
 
-        <div className="flex h-full flex-col px-5 pb-5">
+        <div className="flex h-full flex-col px-5 pb-5 md:px-6 md:pb-6">
           <div className="flex h-full max-h-full flex-col overflow-hidden">
             <ScrollArea className="h-full">
-              <div className="flex h-full flex-col gap-8">
+              <div className="flex h-full flex-col gap-8 md:gap-6">
                 {cart?.items.map((item) => (
                   <CartItem
                     key={item.id}
@@ -56,29 +56,29 @@ export const Cart = () => {
           </div>
 
           {cart?.items && cart?.items.length > 0 && (
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 md:gap-5">
               <Separator />
 
-              <div className="flex items-center justify-between text-xs font-medium">
+              <div className="flex items-center justify-between text-xs md:text-sm font-medium">
                 <p>Subtotal</p>
                 <p>{formatCentsToBRL(cart?.totalPriceInCents ?? 0)}</p>
               </div>
 
               <Separator />
 
-              <div className="flex items-center justify-between text-xs font-medium">
+              <div className="flex items-center justify-between text-xs md:text-sm font-medium">
                 <p>Entrega</p>
                 <p>GRÁTIS</p>
               </div>
 
               <Separator />
 
-              <div className="flex items-center justify-between text-xs font-medium">
+              <div className="flex items-center justify-between text-xs md:text-sm font-medium">
                 <p>Total</p>
-                <p>{formatCentsToBRL(cart?.totalPriceInCents ?? 0)}</p>
+                <p className="md:text-base lg:text-lg">{formatCentsToBRL(cart?.totalPriceInCents ?? 0)}</p>
               </div>
 
-              <Button className="mt-5 rounded-full" asChild>
+              <Button className="mt-5 rounded-full md:h-12 lg:h-14 md:text-base" asChild>
                 <Link href="/cart/identification">Finalizar compra</Link>
               </Button>
             </div>

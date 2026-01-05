@@ -1,13 +1,14 @@
-import Header from "@/components/common/header";
-import Image from "next/image";
+import HeaderWrapper from "@/components/common/header-wrapper";
 import React from "react";
 import { db } from "@/db";
 import ProductList from "@/components/common/product-list";
-import CategorySelector from "@/components/common/category-selector";
 import { productTable } from "@/db/schema";
 import { desc } from "drizzle-orm";
 import Footer from "@/components/common/footer";
 import Brands from "@/components/common/brands";
+import HeroBanner from "@/components/common/hero-banner";
+import PromotionalCards from "@/components/common/promotional-cards";
+import bewearHomeBg from "@/../../public/bewearHomeBg.png";
 
 const Home = async () => {
   const products = await db.query.productTable.findMany({
@@ -22,43 +23,26 @@ const Home = async () => {
     },
   });
 
-  const categories = await db.query.categoryTable.findMany({});
-
   return (
     <>
-      <Header />
-      <div className="space-y-6">
-        <div className="px-5">
-          <Image
-            src="/banner-01.png"
-            alt="Leve uma vida com estilo"
-            height={0}
-            width={0}
-            sizes="100vh"
-            className="h-auto w-full"
-          />
+      <HeaderWrapper />
+      <div className="space-y-6 md:space-y-12 lg:space-y-16">
+        <div className="mx-auto w-full max-w-7xl px-5 md:px-8 lg:px-12">
+          <HeroBanner imageSrc={bewearHomeBg} alt="Leve uma vida com estilo" />
         </div>
 
-        <Brands title='Marcas parceiras' />
-
-        <ProductList products={products} title="Mais vendidos" />
-
-        <div className="px-5">
-          <CategorySelector categories={categories} />
+        <div className="mx-auto w-full max-w-7xl">
+          <Brands title="Marcas parceiras" />
         </div>
 
-        <div className="px-5">
-          <Image
-            src="/banner-02.png"
-            alt="Seja autêntico"
-            height={0}
-            width={0}
-            sizes="100vh"
-            className="h-auto w-full"
-          />
+        <div className="mx-auto w-full max-w-7xl">
+          <ProductList products={products} title="Mais vendidos" />
         </div>
 
-        <ProductList products={newlyCreateProducts} title="Novos produtos" />
+        <div className="mx-auto w-full max-w-7xl px-5 md:px-8 lg:px-12">
+          <PromotionalCards products={newlyCreateProducts.slice(0, 3)} />
+        </div>
+
         <Footer />
       </div>
     </>

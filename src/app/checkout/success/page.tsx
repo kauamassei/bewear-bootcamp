@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import Header from "@/components/common/header";
+import HeaderWrapper from "@/components/common/header-wrapper";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -16,28 +16,28 @@ import {
 const CheckoutSuccessPage = () => {
   return (
     <>
-      <Header />
+      <HeaderWrapper />
       <Dialog open={true} onOpenChange={() => {}}>
-        <DialogContent className="text-center">
+        <DialogContent className="text-center md:max-w-lg lg:max-w-xl">
           <Image
             src="/illustration.svg"
             alt="Success"
             width={300}
             height={300}
-            className="mx-auto"
+            className="mx-auto md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px]"
           />
-          <DialogTitle className="mt-4 text-2xl">Pedido efetuado!</DialogTitle>
-          <DialogDescription className="font-medium">
+          <DialogTitle className="mt-4 text-2xl md:text-3xl lg:text-4xl">Pedido efetuado!</DialogTitle>
+          <DialogDescription className="font-medium md:text-base lg:text-lg">
             Seu pedido foi efetuado com sucesso. Você pode acompanhar o status
-            na seção de “Meus Pedidos”.
+            na seção de "Meus Pedidos".
           </DialogDescription>
 
-          <DialogFooter>
-            <Button className="rounded-full" size="lg">
+          <DialogFooter className="flex-col md:flex-row gap-3 md:gap-4">
+            <Button className="rounded-full w-full md:w-auto" size="lg">
               <Link href='/my-orders'>Ver meus pedidos</Link>
             </Button>
             <Button
-              className="rounded-full"
+              className="rounded-full w-full md:w-auto"
               variant="outline"
               size="lg"
               asChild
