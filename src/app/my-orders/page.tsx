@@ -1,4 +1,4 @@
-import HeaderWrapper from "@/components/common/header-wrapper";
+import Header from "@/components/common/header";
 import { db } from "@/db";
 import { orderTable } from "@/db/schema";
 import { auth } from "@/lib/auth";
@@ -30,7 +30,7 @@ const MyOrdersPage = async () => {
   });
   return (
     <>
-      <HeaderWrapper />
+      <Header />
       <div className="px-5 md:px-8 lg:px-12">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 md:mb-8 lg:mb-10">Meus Pedidos</h1>

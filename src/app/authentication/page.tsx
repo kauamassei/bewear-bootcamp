@@ -1,12 +1,12 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SignInForm from "./components/sign-in-form";
 import SignUpForm from "./components/sign-up-form";
-import HeaderWrapper from "@/components/common/header-wrapper";
+import Header from "@/components/common/header";
 
 const Authentication = async () => {
   return (
     <>
-      <HeaderWrapper />
+      <Header />
 
       <div className="flex w-full flex-col gap-6 p-5 md:p-8 lg:p-12">
         <div className="max-w-md mx-auto w-full md:max-w-lg lg:max-w-xl">

@@ -1,4 +1,4 @@
-import HeaderWrapper from "@/components/common/header-wrapper";
+import Header from "@/components/common/header";
 import { db } from "@/db";
 import { productTable, productVariantTable } from "@/db/schema";
 import { eq } from "drizzle-orm";
@@ -40,7 +40,7 @@ const ProductVariantPage = async ({ params }: ProductVariantPageProps) => {
   });
   return (
     <>
-      <HeaderWrapper />
+      <Header />
       <div className="flex flex-col space-y-6 md:space-y-8 lg:space-y-10">
         {/* Mobile: imagem full width */}
         <div className="md:hidden">

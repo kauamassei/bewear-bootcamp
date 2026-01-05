@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import HeaderWrapper from "@/components/common/header-wrapper";
+import Header from "@/components/common/header";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -16,7 +16,7 @@ import {
 const CheckoutSuccessPage = () => {
   return (
     <>
-      <HeaderWrapper />
+      <Header />
       <Dialog open={true} onOpenChange={() => {}}>
         <DialogContent className="text-center md:max-w-lg lg:max-w-xl">
           <Image

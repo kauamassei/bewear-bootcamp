@@ -2,7 +2,7 @@ import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 import Footer from "@/components/common/footer";
-import HeaderWrapper from "@/components/common/header-wrapper";
+import Header from "@/components/common/header";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { db } from "@/db";
@@ -46,7 +46,7 @@ const ConfirmationPage = async () => {
   }
   return (
     <div>
-      <HeaderWrapper />
+      <Header />
       <div className="space-y-4 md:space-y-6 lg:space-y-8 px-5 md:px-8 lg:px-12">
         <div className="md:grid md:grid-cols-2 lg:grid-cols-[1.5fr_1fr] md:gap-8 lg:gap-12">
           <Card>

@@ -30,26 +30,26 @@ const Brands = ({title}: BrandsProps) => {
         <Image src="/zara.png" width={80} height={106} alt="Zara logo" />
       </div>
       {/* Desktop: grid centralizado */}
-      <div className="hidden md:flex justify-center items-center gap-6 lg:gap-8 px-8 lg:px-12 flex-wrap">
-        <Image src="/nike.png" width={100} height={133} alt="Nike logo" className="md:w-[100px] lg:w-[120px]" />
-        <Image src="/adidas.png" width={100} height={133} alt="Adidas logo" className="md:w-[100px] lg:w-[120px]" />
-        <Image src="/puma.png" width={100} height={133} alt="Puma logo" className="md:w-[100px] lg:w-[120px]" />
-        <Image src="/polo.png" width={100} height={133} alt="Polo logo" className="md:w-[100px] lg:w-[120px]" />
+      <div className="hidden md:flex justify-center items-center gap-6 lg:gap-8 px-8 lg:px-12 flex-wrap mt-4">
+        <Image src="/nikelogo2.png" width={100} height={133} alt="Nike logo" className="md:w-[100px] lg:w-[120px]" />
+        <Image src="/adidaslogo2.png" width={100} height={133} alt="Adidas logo" className="md:w-[100px] lg:w-[120px]" />
+        <Image src="/pumalogo2.png" width={100} height={133} alt="Puma logo" className="md:w-[100px] lg:w-[120px]" />
+        <Image src="/polologo2.png" width={100} height={133} alt="Polo logo" className="md:w-[100px] lg:w-[120px]" />
         <Image
-          src="/newbalance.png"
+          src="/nblogo2.png"
           width={100}
           height={133}
           alt="New Balance logo"
           className="md:w-[100px] lg:w-[120px]"
         />
         <Image
-          src="/converse.png"
+          src="/converselogo2.png"
           width={100}
           height={133}
           alt="Converse logo"
           className="md:w-[100px] lg:w-[120px]"
         />
-        <Image src="/zara.png" width={100} height={133} alt="Zara logo" className="md:w-[100px] lg:w-[120px]" />
+        <Image src="/zaralogo2.png" width={100} height={133} alt="Zara logo" className="md:w-[100px] lg:w-[120px]" />
       </div>
     </>
   );
